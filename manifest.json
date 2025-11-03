@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "密码强度检测插件",
+  "version": "1.0",
+  "description": "检测密码是否符合复杂度要求：长度大于8，必须包含大小写字母、数字和特殊符号",
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icon16.svg",
+      "48": "icon48.svg",
+      "128": "icon128.svg"
+    }
+  },
+  "icons": {
+    "16": "icon16.svg",
+    "48": "icon48.svg",
+    "128": "icon128.svg"
+  }
+}
