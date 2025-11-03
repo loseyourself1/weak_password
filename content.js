@@ -45,14 +45,49 @@ function createStrengthIndicator(inputElement) {
       .password-valid { border: 2px solid #2e7d32 !important; }
       .password-invalid { border: 2px solid #c62828 !important; }
       .password-strength-indicator {
-        display: block;
+        /* 强制换行显示的样式 */
+        display: block !important;
+        clear: both !important;
+        float: none !important;
+        position: static !important;
+        width: auto !important;
+        min-width: 200px;
+        max-width: 100%;
+        margin-top: 15px !important;
+        margin-bottom: 10px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 8px 12px;
+        border-radius: 4px;
         font-size: 12px;
-        margin-top: 5px;
-        padding: 5px;
-        border-radius: 3px;
+        line-height: 1.4;
+        color: #333;
         background-color: #f5f5f5;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        overflow: visible;
         z-index: 9999;
-        position: relative;
+        word-break: break-word;
+        white-space: normal;
+      }
+      
+      /* 专门针对密码输入框后的提示元素，确保强制换行 */
+      input[type="password"] + .password-strength-indicator {
+        display: block !important;
+        position: static !important;
+        transform: none !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        float: none !important;
+        white-space: normal;
+        word-wrap: break-word;
+      }
+      
+      /* 防止与父容器样式冲突 */
+      .password-strength-indicator::before,
+      .password-strength-indicator::after {
+        display: none !important;
       }
     `;
     document.head.appendChild(style);
